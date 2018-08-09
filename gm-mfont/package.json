@@ -1,0 +1,20 @@
+{
+  "name": "gm-mfont",
+  "version": "1.2.21",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "publishpatch": "npm version patch; git push origin master:master; git push origin master:gh-pages; npm publish --registry='https://registry.npmjs.org'; cnpm sync gm-mfont; npm version; "
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/gmfe/gm-mfont.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/gmfe/gm-mfont/issues"
+  },
+  "homepage": "https://github.com/gmfe/gm-mfont#readme"
+}
