@@ -1,0 +1,31 @@
+{
+  "name": "dingtalk-robot-webhook",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon --harmony index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/gmfe/dingtalk-robot-webhook.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/gmfe/dingtalk-robot-webhook/issues"
+  },
+  "homepage": "https://github.com/gmfe/dingtalk-robot-webhook#readme",
+  "devDependencies": {
+    "babel-core": "^6.26.0",
+    "dingtalk-robot-sender": "^1.1.0",
+    "koa": "^2.2.0",
+    "koa-body": "^2.0.0",
+    "lodash": "^4.17.4",
+    "log4js": "^2.3.3",
+    "moment": "^2.18.1",
+    "path": "^0.12.7",
+    "shelljs": "^0.7.8"
+  }
+}

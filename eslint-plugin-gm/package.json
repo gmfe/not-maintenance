@@ -1,0 +1,25 @@
+{
+  "name": "eslint-plugin-gm",
+  "version": "1.2.2",
+  "description": "配置中使用了[eslint推荐配置](http://eslint.org/docs/rules/)",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "publishpatch": "git add --all; git commit -m 'c'; git pull; npm version patch; git push origin master:master; npm publish --registry='https://registry.npmjs.org'; cnpm sync eslint-plugin-gm; npm version"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/gmfe/eslint-plugin-gm.git"
+  },
+  "dependencies": {
+    "eslint": "^4.6.1",
+    "eslint-plugin-react": "^6.2.2",
+    "babel-eslint": "^8.1.2"
+  },
+  "author": "zhangsiqi",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/gmfe/eslint-plugin-gm/issues"
+  },
+  "homepage": "https://github.com/gmfe/eslint-plugin-gm#readme"
+}
