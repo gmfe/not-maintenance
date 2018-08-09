@@ -1,0 +1,28 @@
+{
+  "name": "EMS助手",
+  "description": "serial weight",
+  "version": "1.0.1",
+  "manifest_version": 2,
+  "permissions": [
+    "notifications",
+    "serial"
+  ],
+  "minimum_chrome_version": "41",
+  "app": {
+    "background": {
+      "scripts": [
+        "./common/lodash.js",
+        "./common/util.js",
+        "./background/launch.js",
+        "./background/weight.js"
+      ]
+    }
+  },
+  "externally_connectable": {
+    "matches": [
+      "*://station.guanmai.cn/*",
+      "*://station.dev.guanmai.cn/*",
+      "*://localhost:8787/*"
+    ]
+  }
+}

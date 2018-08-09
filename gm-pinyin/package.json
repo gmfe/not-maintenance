@@ -1,0 +1,26 @@
+{
+  "name": "gm-pinyin",
+  "version": "3.0.0",
+  "description": "",
+  "main": "lib/web-pinyin.js",
+  "directories": {
+    "lib": "lib"
+  },
+  "dependencies": {
+    "object-assign": "^4.1.0"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/gmfe/gm-pinyin.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/gmfe/gm-pinyin/issues"
+  },
+  "homepage": "https://github.com/gmfe/gm-pinyin#readme"
+}

@@ -1,0 +1,23 @@
+{
+  "name": "gm-chrome-app",
+  "version": "1.0.0",
+  "description": "hud weight",
+  "main": "web/dist/web.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "webpack && webpack --config webpack.web.config.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/gmfe/gm-chrome-app.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/gmfe/gm-chrome-app/issues"
+  },
+  "homepage": "https://github.com/gmfe/gm-chrome-app#readme",
+  "devDependencies": {
+
+  }
+}
