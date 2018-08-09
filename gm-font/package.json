@@ -1,0 +1,19 @@
+{
+  "name": "gm-font",
+  "version": "2.2.9",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/gmfe/gm-font.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/gmfe/gm-font/issues"
+  },
+  "homepage": "https://github.com/gmfe/gm-font#readme"
+}

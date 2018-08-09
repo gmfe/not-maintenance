@@ -1,0 +1,31 @@
+{
+    "name": "react-native-x5",
+    "version": "1.0.0",
+    "description": "X5 WebView for react-native",
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/gmfe/react-native-x5"
+    },
+    "license": "MIT",
+    "keywords": [
+        "react-component",
+        "react-native",
+        "X5",
+        "webview",
+        "android",
+        "QQ浏览器",
+        "blink",
+        "webkit"
+    ],
+    "scripts": {
+        "lint": "eslint ./"
+    },
+    "peerDependencies": {
+        "react-native": ">=0.33.0"
+    },
+    "devDependencies": {
+        "babel-eslint": "^6.1.2",
+        "eslint": "^2.13.1",
+        "eslint-plugin-react": "^4.3.0"
+    }
+}
