@@ -1,0 +1,5 @@
+{
+  "scripts": {
+    "ts-build": "gmtool run ts-build"
+  }
+}

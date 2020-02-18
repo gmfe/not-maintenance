@@ -1,0 +1,40 @@
+{
+  "compilerOptions": {
+    "lib": [
+      "es5",
+      "es2016",
+      "es2017",
+      "dom"
+    ],
+    "baseUrl": ".",
+    "paths": {
+      "*": [
+        "types/*"
+      ]
+    },
+    "strict": true,
+    "module": "commonjs",
+    "target": "es5",
+    "allowJs": true,
+    "sourceMap": false,
+    "outDir": "./lib",
+    "noImplicitAny": true,
+    "moduleResolution": "node",
+    "downlevelIteration": true,
+    "resolveJsonModule": true,
+    "allowSyntheticDefaultImports": true,
+    "typeRoots": [
+      "node_modules/@types"
+    ]
+  },
+  "exclude": [
+    "node_modules",
+    "lib",
+    "scripts",
+    "_gmtool/static/*",
+    "**/_project/**/*"
+  ],
+  "include": [
+    "_gmtool/**/*"
+  ]
+}

@@ -1,0 +1,99 @@
+
+const os = require('os')
+const fs = require('fs')
+const path = require('path')
+
+const webpack = require('webpack')
+const HappyPack = require('happypack')
+const TerserPlugin = require('terser-webpack-plugin')
+const MiniCssExtractPlugin = require('mini-css-extract-plugin')
+
+const packageJSON = require('./package.json')
+const { getDllVersionHash } = require('../utils/project-util');
+
+const env = process.env.NODE_ENV
+const happyThreadPool = HappyPack.ThreadPool({ size: os.cpus().length })
+
+console.log('webpack.config.dll.js NODE_ENV', env)
+
+const isDev = env === 'development'
+
+function getConfig(options) {
+  // 生成一个文件，记录dll的版本，以便下次判断已构建过，避免重复构建
+  const dllVersionHash = getDllVersionHash(options.dll, packageJSON)
+
+  const config = {
+    mode: env,
+    entry: {
+      'dll': options.dll
+    },
+    output: {
+      path: path.resolve('build'),
+      filename: `dll/[hash:8].${dllVersionHash}.dll.bundle.js`,
+      library: 'dll_library',
+      publicPath: options.publicPath
+    },
+    module: {
+      rules: [{
+        test: /\.js/,
+        loader: 'happypack/loader?id=js'
+      }, {
+        test: /\.(css|less)$/,
+        loader: [
+          MiniCssExtractPlugin.loader,
+          'happypack/loader?id=css'
+        ]
+      }, {
+        test: /(fontawesome-webfont|glyphicons-halflings-regular|iconfont)\.(woff|woff2|ttf|eot|svg)($|\?)/,
+        use: [{
+          loader: 'url-loader',
+          options: {
+            limit: 1024,
+            name: 'font/[name].[hash:8].[ext]'
+          }
+        }]
+      }]
+    },
+    plugins: [
+      new webpack.DefinePlugin({
+        __DEBUG__: isDev
+      }),
+      new webpack.DllPlugin({
+        path: path.resolve('build/dll/dll.manifest.json'),
+        name: 'dll_library'
+      }),
+      new HappyPack({
+        id: 'js',
+        threadPool: happyThreadPool,
+        loaders: [{
+          path: 'babel-loader',
+          query: {
+            cacheDirectory: true
+          }
+        }]
+      }),
+      new HappyPack({
+        id: 'css',
+        threadPool: happyThreadPool,
+        loaders: ['css-loader', 'less-loader']
+      }),
+      new webpack.IgnorePlugin(/^\.\/locale$/, /moment$/)
+    ]
+  }
+
+  if (!isDev) {
+    config.devtool = 'source-map'
+    config.optimization = config.optimization || {}
+    config.optimization.minimizer = [
+      new TerserPlugin({
+        terserOptions: {
+          mangle: false // Note `mangle.properties` is `false` by default.
+        }
+      })
+    ]
+  }
+
+  return config
+}
+
+module.exports = getConfig;

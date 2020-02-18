@@ -1,0 +1,12 @@
+{
+  "scripts": {
+    "gl-clean": "rm -rf ./dist ./es ./lib",
+    "dev": "cross-env NODE_ENV=dev webpack-dev-server",
+    "gl-pub": "npm run build-prod && npm run compile && npm version patch && npm publish",
+    "build-dev": "cross-env NODE_ENV=dev webpack -d --mode development",
+    "build-prod": "webpack -p --mode production",
+    "gl-cp-update": "cp -R ./lib ./dist ../gm_static_station/node_modules/gm-web-excel-table",
+    "gl-build-update": "npm run build-prod && npm run compile && npm run cpupdate",
+    "tsc-compile": "tsc && npm run tsc-d"
+  }
+}
