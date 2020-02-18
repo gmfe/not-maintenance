@@ -1,0 +1,22 @@
+{
+  "name": "gm-xfont",
+  "version": "1.0.79",
+  "description": "------ 新的图标库 demo: https://gmfe.github.io/gmfont/demo_fontclass.html",
+  "main": "iconfont.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/gmfe/gm-xfont.git"
+  },
+  "keywords": [
+    "iconfont"
+  ],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/gmfe/gm-xfont/issues"
+  },
+  "homepage": "https://github.com/gmfe/gm-xfont#readme"
+}
