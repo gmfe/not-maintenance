@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>popup</title>
+    <link rel="stylesheet" href="popup.css">
+</head>
+<body>
+<h1 class="title">IconFont Crane<span class="version">(0.1.0)</span></h1>
+<div class="main" id="main">
+    <dl class="control-group">
+        <dt>一键下载当前项目素材</dt>
+        <dt>
+            <button class="control-button" data-type="download-svg">SVG</button>
+            <button class="control-button" data-type="download-png">PNG</button>
+            <button class="control-button" data-type="download-jpg">JPG</button>
+            <button class="control-button" data-type="download-webp">WEBP</button>
+            <p class="size-input-wrap"><label for="sizeInput">图像尺寸</label><input id="sizeInput" value="200" placeholder="输出图像的尺寸" type="number"/></p>
+        </dt>
+    </dl>
+</div>
+<p class="warning" id="warning">当前站点不支持此功能</p>
+<script src="popup.js"></script>
+</body>
+</html>
