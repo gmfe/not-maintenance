@@ -1,0 +1,520 @@
+<html>
+
+<head>
+    <meta http-equiv="Content-type" content="text/html; charset=utf-8" />
+    <title>jsPDF custom fonts example</title>
+    <script src="./pdfmake.js"></script>
+    <script src="./vfs_fonts.js"></script>
+
+    <style>
+        button {
+            margin: 50px;
+        }
+
+        iframe {
+            width: 70%;
+            height: 80%;
+            margin: 20px;
+            float: right;
+            background: rgba(193, 193, 193, 1);
+        }
+    </style>
+</head>
+
+<body>
+    <button onclick="pdfPrint()">打印</button>
+    <div id="output"></div>
+</body>
+<script>
+    var docDefinition = {
+        // pageMargins: [40, 420, 40, 60],
+        // pageSize: {width: 600 , height: Infinity},
+        // pageSize: 'A4',
+        background: { text: 'simple:（text)', marginBottom: 0, marginTop: 100 },
+        info: {
+            title: '配送单',
+        },
+        header: [{
+            table: {
+                headerRows: 1,
+                widths: ['*', 'auto', 100, '*'],
+                body: [
+                    ['First', 'Second', 'Third', 'The last one'],
+                    ['Value 1', '啊手 动滑 稽况且我iv吗，安师大 2', 'Value 3', 'Value 4'],
+                    [{ colSpan: 3, text: '小计' }, {}, {}, 'Value 4'],
+                    ['Value 1', 'Value 2', 'Value 3', 'Value 4'],
+                    ['Value 1', 'Value 2', 'Value 3', 'Value 4'],
+                    ['Value 1', 'Value 2', 'Value 3', 'Value 4'],
+                    ['Value 1', 'Value 2', 'Value 3', 'Value 4'],
+                    ['Value 1', 'Value 2', 'Value 3', 'Value 4'],
+                    ['Value 1', 'Value 2', 'Value 3', 'Value 4'],
+                    ['Value 1', 'Value 2', 'Value 3', 'Value 4'],
+                    ['Value 1', 'Value 2', 'Value 3', 'Value 4'],
+                ]
+            },
+        }, {
+            columns: [
+                '页 眉　左',
+                { text: '页 眉　右', alignment: 'right', marginTop: 35, height: 100, bold: true },
+            ]
+        },
+        { text: 'header bootom' }
+        ],
+        footer: (currentPage, pageCount) => {
+            return { text: `第${currentPage}页，总${pageCount}页`, fontSize: 18, bold: true }
+        },
+        content: [
+            { text: '供应商', alignment: 'center', bold: true, fontWeight: 'bold', absolutePosition: { y: 10 } },
+            {
+                alignment: 'justify',
+                columns: [
+                    { text: '姓龍为什么名!@#$%^&*()_+姓！@#￥%……&*（）——）名姓名姓名姓名姓名姓名姓名姓名姓名', width: 140, bold: true },
+                    { text: '性别', width: 50, marginLeft: 20 }
+                ],
+                columnGap: 10,
+                style: "marginTop"
+            },
+            {
+                toc: {
+                    title: { text: 'INDEX' }
+                }
+            },
+            {
+                text: 'This is a header',
+                tocItem: true, // or tocItem: 'mainToc' if is used id in toc
+            },
+            {
+                alignment: 'justify',
+                columns: [
+                    { text: '收货地址', width: 250, fontSize: 8 },
+                    { text: '电话', width: 140 },
+                ],
+                style: "scond"
+            },
+            {
+                table: {
+                    headerRows: 1,
+                    widths: ['*', 'auto', 100, '*'],
+                    body: [
+                        ['First', 'Second', 'Third', 'The last one'],
+                        ['Value 1', '啊手动滑稽况且我iv吗，安师大 2', 'Value 3', 'Value 4'],
+                        [{ colSpan: 3, text: '小计' }, {}, {}, 'Value 4'],
+                        ['Value 1', 'Value 2', 'Value 3', 'Value 4'],
+                        ['Value 1', 'Value 2', 'Value 3', 'Value 4'],
+                        ['Value 1', 'Value 2', 'Value 3', 'Value 4'],
+                        ['Value 1', 'Value 2', 'Value 3', 'Value 4'],
+                        ['Value 1', 'Value 2', 'Value 3', 'Value 4'],
+                        ['Value 1', 'Value 2', 'Value 3', 'Value 4'],
+                        ['Value 1', 'Value 2', 'Value 3', 'Value 4'],
+                        ['Value 1', 'Value 2', 'Value 3', 'Value 4'],
+                        ['Value 1', 'Value 2', 'Value 3', 'Value 4'],
+                        ['Value 1', 'Value 2', 'Value 3', 'Value 4'],
+                        ['Value 1', 'Value 2', 'Value 3', 'Value 4'],
+                        ['Value 1', 'Value 2', 'Value 3', 'Value 4'],
+                        ['Value 1', 'Value 2', 'Value 3', 'Value 4'],
+                        ['Value 1', 'Value 2', 'Value 3', 'Value 4'],
+                        ['Value 1', 'Value 2', 'Value 3', 'Value 4'],
+                        ['Value 1', 'Value 2', 'Value 3', 'Value 4'],
+                        ['Value 1', 'Value 2', 'Value 3', 'Value 4'],
+                        ['Value 1', 'Value 2', 'Value 3', 'Value 4'],
+                        ['Value 1', 'Value 2', 'Value 3', 'Value 4'],
+                        ['Value 1', 'Value 2', 'Value 3', 'Value 4'],
+                        ['Value 1', 'Value 2', 'Value 3', 'Value 4'],
+                        ['Value 1', 'Value 2', 'Value 3', 'Value 4'],
+                        ['Value 1', 'Value 2', 'Value 3', 'Value 4'],
+                        ['Value 1', 'Value 2', 'Value 3', 'Value 4'],
+                        ['Value 1', 'Value 2', 'Value 3', 'Value 4'],
+                        ['Value 1', 'Value 2', 'Value 3', 'Value 4'],
+                        ['Value 1', 'Value 2', 'Value 3', 'Value 4'],
+                        ['Value 1', 'Value 2', 'Value 3', 'Value 4'],
+                        ['Value 1', 'Value 2', 'Value 3', 'Value 4'],
+                        ['Value 1', 'Value 2', 'Value 3', 'Value 4'],
+                        ['Value 1', 'Value 2', 'Value 3', 'Value 4'],
+                        ['Value 1', 'Value 2', 'Value 3', 'Value 4'],
+                        ['Value 1', 'Value 2', 'Value 3', 'Value 4'],
+                        ['Value 1', 'Value 2', 'Value 3', 'Value 4'],
+                        ['Value 1', 'Value 2', 'Value 3', 'Value 4'],
+                        ['Value 1', 'Value 2', 'Value 3', 'Value 4'],
+                        ['Value 1', 'Value 2', 'Value 3', 'Value 4'],
+                        ['Value 1', 'Value 2', 'Value 3', 'Value 4'],
+                        ['Value 1', 'Value 2', 'Value 3', 'Value 4'],
+                        ['Value 1', 'Value 2', 'Value 3', 'Value 4'],
+                        ['Value 1', 'Value 2', 'Value 3', 'Value 4'],
+                        ['Value 1', 'Value 2', 'Value 3', 'Value 4'],
+                        ['Value 1', 'Value 2', '啊手动滑稽况且我iv吗，安师大 3', 'Value 4'],
+                        ['Value 1', 'Value 2', 'Value 3', '啊手动滑稽,况，，，，,，,且我iv吗，安师大 4'],
+                        [{ text: 'Bold value', bold: true }, 'Val 2', 'Val 3', 'Val 4']
+                    ],
+                },
+                style: "table"
+            },
+            {
+                alignment: 'justify',
+                columns: [
+                    { text: '签名', width: 140, bold: true },
+                    { text: '签名', width: 50 }
+                ],
+                style: "marginTop"
+            },
+            {
+                alignment: 'justify',
+                columns: [
+                    { text: '收货地收 货地址:址', width: 250 },
+                    { text: '电：话', width: 140 },
+                ],
+            },
+        ],
+        styles: {
+            table: {
+                marginTop: 50,
+                fontSize: 12
+            },
+            marginTop: {
+                marginTop: 40,
+                height: 50
+            },
+            scond: {
+                position: 'absolute'
+            }
+        },
+        defaultStyle: {
+            font: 'MFKeSong_Noncommercial'
+        }
+    };
+    pdfMake.fonts = {
+        MFKeSong_Noncommercial: {
+            normal: 'MFKeSong_Noncommercial-Regular.ttf',
+            bold: 'MFKeSong_Noncommercial-Bold.ttf'
+        }
+    };
+
+    const docDefinitions = [{
+        // pageMargins: [40, 420, 40, 60],
+        // pageSize: {width: 600 , height: Infinity},
+        // pageSize: 'A4',
+        background: { text: 'simple:（text)', marginBottom: 0, marginTop: 100 },
+        info: {
+            title: '配送单',
+        },
+        header: [{
+            table: {
+                headerRows: 1,
+                widths: ['*', 'auto', 100, '*'],
+                body: [
+                    ['First', 'Second', 'Third', 'The last one'],
+                    ['Value 1', '啊手 动滑 稽况且我iv吗，安师大 2', 'Value 3', 'Value 4'],
+                    [{ colSpan: 3, text: '小计' }, {}, {}, 'Value 4'],
+                    ['Value 1', 'Value 2', 'Value 3', 'Value 4'],
+                    ['Value 1', 'Value 2', 'Value 3', 'Value 4'],
+                    ['Value 1', 'Value 2', 'Value 3', 'Value 4'],
+                    ['Value 1', 'Value 2', 'Value 3', 'Value 4'],
+                    ['Value 1', 'Value 2', 'Value 3', 'Value 4'],
+                    ['Value 1', 'Value 2', 'Value 3', 'Value 4'],
+                    ['Value 1', 'Value 2', 'Value 3', 'Value 4'],
+                    ['Value 1', 'Value 2', 'Value 3', 'Value 4'],
+                ]
+            },
+        }, {
+            columns: [
+                '页 眉　左',
+                { text: '页 眉　右', alignment: 'right', marginTop: 35, height: 100, bold: true },
+            ]
+        },
+        { text: 'header bootom' }
+        ],
+        footer: (currentPage, pageCount) => {
+            return { text: `第${currentPage}页，总${pageCount}页`, fontSize: 18, bold: true }
+        },
+        content: [
+            { text: '供应商', alignment: 'center', bold: true, fontWeight: 'bold', absolutePosition: { y: 10 } },
+            {
+                alignment: 'justify',
+                columns: [
+                    { text: '姓龍为什么名!@#$%^&*()_+姓！@#￥%……&*（）——）名姓名姓名姓名姓名姓名姓名姓名姓名', width: 140, bold: true },
+                    { text: '性别', width: 50, marginLeft: 20 }
+                ],
+                columnGap: 10,
+                style: "marginTop"
+            },
+            {
+                toc: {
+                    title: { text: 'INDEX' }
+                }
+            },
+            {
+                text: 'This is a header',
+                tocItem: true, // or tocItem: 'mainToc' if is used id in toc
+            },
+            {
+                alignment: 'justify',
+                columns: [
+                    { text: '收货地址', width: 250, fontSize: 8 },
+                    { text: '电话', width: 140 },
+                ],
+                style: "scond"
+            },
+            {
+                table: {
+                    headerRows: 1,
+                    widths: ['*', 'auto', 100, '*'],
+                    body: [
+                        ['First', 'Second', 'Third', 'The last one'],
+                        ['Value 1', '啊手动滑稽况且我iv吗，安师大 2', 'Value 3', 'Value 4'],
+                        [{ colSpan: 3, text: '小计' }, {}, {}, 'Value 4'],
+                        ['Value 1', 'Value 2', 'Value 3', 'Value 4'],
+                        ['Value 1', 'Value 2', 'Value 3', 'Value 4'],
+                        ['Value 1', 'Value 2', 'Value 3', 'Value 4'],
+                        ['Value 1', 'Value 2', 'Value 3', 'Value 4'],
+                        ['Value 1', 'Value 2', 'Value 3', 'Value 4'],
+                        ['Value 1', 'Value 2', 'Value 3', 'Value 4'],
+                        ['Value 1', 'Value 2', 'Value 3', 'Value 4'],
+                        ['Value 1', 'Value 2', 'Value 3', 'Value 4'],
+                        ['Value 1', 'Value 2', 'Value 3', 'Value 4'],
+                        ['Value 1', 'Value 2', 'Value 3', 'Value 4'],
+                        ['Value 1', 'Value 2', 'Value 3', 'Value 4'],
+                        ['Value 1', 'Value 2', 'Value 3', 'Value 4'],
+                        ['Value 1', 'Value 2', 'Value 3', 'Value 4'],
+                        ['Value 1', 'Value 2', 'Value 3', 'Value 4'],
+                        ['Value 1', 'Value 2', 'Value 3', 'Value 4'],
+                        ['Value 1', 'Value 2', 'Value 3', 'Value 4'],
+                        ['Value 1', 'Value 2', 'Value 3', 'Value 4'],
+                        ['Value 1', 'Value 2', 'Value 3', 'Value 4'],
+                        ['Value 1', 'Value 2', 'Value 3', 'Value 4'],
+                        ['Value 1', 'Value 2', 'Value 3', 'Value 4'],
+                        ['Value 1', 'Value 2', 'Value 3', 'Value 4'],
+                        ['Value 1', 'Value 2', 'Value 3', 'Value 4'],
+                        ['Value 1', 'Value 2', 'Value 3', 'Value 4'],
+                        ['Value 1', 'Value 2', 'Value 3', 'Value 4'],
+                        ['Value 1', 'Value 2', 'Value 3', 'Value 4'],
+                        ['Value 1', 'Value 2', 'Value 3', 'Value 4'],
+                        ['Value 1', 'Value 2', 'Value 3', 'Value 4'],
+                        ['Value 1', 'Value 2', 'Value 3', 'Value 4'],
+                        ['Value 1', 'Value 2', 'Value 3', 'Value 4'],
+                        ['Value 1', 'Value 2', 'Value 3', 'Value 4'],
+                        ['Value 1', 'Value 2', 'Value 3', 'Value 4'],
+                        ['Value 1', 'Value 2', 'Value 3', 'Value 4'],
+                        ['Value 1', 'Value 2', 'Value 3', 'Value 4'],
+                        ['Value 1', 'Value 2', 'Value 3', 'Value 4'],
+                        ['Value 1', 'Value 2', 'Value 3', 'Value 4'],
+                        ['Value 1', 'Value 2', 'Value 3', 'Value 4'],
+                        ['Value 1', 'Value 2', 'Value 3', 'Value 4'],
+                        ['Value 1', 'Value 2', 'Value 3', 'Value 4'],
+                        ['Value 1', 'Value 2', 'Value 3', 'Value 4'],
+                        ['Value 1', 'Value 2', 'Value 3', 'Value 4'],
+                        ['Value 1', 'Value 2', 'Value 3', 'Value 4'],
+                        ['Value 1', 'Value 2', 'Value 3', 'Value 4'],
+                        ['Value 1', 'Value 2', '啊手动滑稽况且我iv吗，安师大 3', 'Value 4'],
+                        ['Value 1', 'Value 2', 'Value 3', '啊手动滑稽,况，，，，,，,且我iv吗，安师大 4'],
+                        [{ text: 'Bold value', bold: true }, 'Val 2', 'Val 3', 'Val 4']
+                    ],
+                },
+                style: "table"
+            },
+            {
+                alignment: 'justify',
+                columns: [
+                    { text: '签名', width: 140, bold: true },
+                    { text: '签名', width: 50 }
+                ],
+                style: "marginTop"
+            },
+            {
+                alignment: 'justify',
+                columns: [
+                    { text: '收货地收 货地址:址', width: 250 },
+                    { text: '电：话', width: 140 },
+                ],
+            },
+        ],
+        styles: {
+            table: {
+                marginTop: 50,
+                fontSize: 12
+            },
+            marginTop: {
+                marginTop: 40,
+                height: 50
+            },
+            scond: {
+                position: 'absolute'
+            }
+        },
+        defaultStyle: {
+            font: 'MFKeSong_Noncommercial'
+        }
+    }, {
+        // pageMargins: [40, 420, 40, 60],
+        // pageSize: {width: 600 , height: Infinity},
+        // pageSize: 'A4',
+        background: { text: 'simple:（text)', marginBottom: 0, marginTop: 100 },
+        info: {
+            title: '配送单',
+        },
+        header: [{
+            table: {
+                headerRows: 1,
+                widths: ['*', 'auto', 100, '*'],
+                body: [
+                    ['First', 'Second', 'Third', 'The last one'],
+                    ['Value 1', '啊手 动滑 稽况且我iv吗，安师大 2', 'Value 3', 'Value 4'],
+                    [{ colSpan: 3, text: '小计' }, {}, {}, 'Value 4'],
+                    ['Value 1', 'Value 2', 'Value 3', 'Value 4'],
+                    ['Value 1', 'Value 2', 'Value 3', 'Value 4'],
+                    ['Value 1', 'Value 2', 'Value 3', 'Value 4'],
+                    ['Value 1', 'Value 2', 'Value 3', 'Value 4'],
+                    ['Value 1', 'Value 2', 'Value 3', 'Value 4'],
+                    ['Value 1', 'Value 2', 'Value 3', 'Value 4'],
+                    ['Value 1', 'Value 2', 'Value 3', 'Value 4'],
+                    ['Value 1', 'Value 2', 'Value 3', 'Value 4'],
+                ]
+            },
+        }, {
+            columns: [
+                '页 眉　左',
+                { text: '页 眉　右', alignment: 'right', marginTop: 35, height: 100, bold: true },
+            ]
+        },
+        { text: 'header bootom' }
+        ],
+        footer: (currentPage, pageCount) => {
+            return { text: `第${currentPage}页，总${pageCount}页`, fontSize: 18, bold: true }
+        },
+        content: [
+            { text: '供应商', alignment: 'center', bold: true, fontWeight: 'bold', absolutePosition: { y: 10 } },
+            {
+                alignment: 'justify',
+                columns: [
+                    { text: '姓龍为什么名!@#$%^&*()_+姓！@#￥%……&*（）——）名姓名姓名姓名姓名姓名姓名姓名姓名', width: 140, bold: true },
+                    { text: '性别', width: 50, marginLeft: 20 }
+                ],
+                columnGap: 10,
+                style: "marginTop"
+            },
+            {
+                toc: {
+                    title: { text: 'INDEX' }
+                }
+            },
+            {
+                text: 'This is a header',
+                tocItem: true, // or tocItem: 'mainToc' if is used id in toc
+            },
+            {
+                alignment: 'justify',
+                columns: [
+                    { text: '收货地址', width: 250, fontSize: 8 },
+                    { text: '电话', width: 140 },
+                ],
+                style: "scond"
+            },
+            {
+                table: {
+                    headerRows: 1,
+                    widths: ['*', 'auto', 100, '*'],
+                    body: [
+                        ['First', 'Second', 'Third', 'The last one'],
+                        ['Value 1', '啊手动滑稽况且我iv吗，安师大 2', 'Value 3', 'Value 4'],
+                        [{ colSpan: 3, text: '小计' }, {}, {}, 'Value 4'],
+                        ['Value 1', 'Value 2', 'Value 3', 'Value 4'],
+                        ['Value 1', 'Value 2', 'Value 3', 'Value 4'],
+                        ['Value 1', 'Value 2', 'Value 3', 'Value 4'],
+                        ['Value 1', 'Value 2', 'Value 3', 'Value 4'],
+                        ['Value 1', 'Value 2', 'Value 3', 'Value 4'],
+                        ['Value 1', 'Value 2', 'Value 3', 'Value 4'],
+                        ['Value 1', 'Value 2', 'Value 3', 'Value 4'],
+                        ['Value 1', 'Value 2', 'Value 3', 'Value 4'],
+                        ['Value 1', 'Value 2', 'Value 3', 'Value 4'],
+                        ['Value 1', 'Value 2', 'Value 3', 'Value 4'],
+                        ['Value 1', 'Value 2', 'Value 3', 'Value 4'],
+                        ['Value 1', 'Value 2', 'Value 3', 'Value 4'],
+                        ['Value 1', 'Value 2', 'Value 3', 'Value 4'],
+                        ['Value 1', 'Value 2', 'Value 3', 'Value 4'],
+                        ['Value 1', 'Value 2', 'Value 3', 'Value 4'],
+                        ['Value 1', 'Value 2', 'Value 3', 'Value 4'],
+                        ['Value 1', 'Value 2', 'Value 3', 'Value 4'],
+                        ['Value 1', 'Value 2', 'Value 3', 'Value 4'],
+                        ['Value 1', 'Value 2', 'Value 3', 'Value 4'],
+                        ['Value 1', 'Value 2', 'Value 3', 'Value 4'],
+                        ['Value 1', 'Value 2', 'Value 3', 'Value 4'],
+                        ['Value 1', 'Value 2', 'Value 3', 'Value 4'],
+                        ['Value 1', 'Value 2', 'Value 3', 'Value 4'],
+                        ['Value 1', 'Value 2', 'Value 3', 'Value 4'],
+                        ['Value 1', 'Value 2', 'Value 3', 'Value 4'],
+                        ['Value 1', 'Value 2', 'Value 3', 'Value 4'],
+                        ['Value 1', 'Value 2', 'Value 3', 'Value 4'],
+                        ['Value 1', 'Value 2', 'Value 3', 'Value 4'],
+                        ['Value 1', 'Value 2', 'Value 3', 'Value 4'],
+                        ['Value 1', 'Value 2', 'Value 3', 'Value 4'],
+                        ['Value 1', 'Value 2', 'Value 3', 'Value 4'],
+                        ['Value 1', 'Value 2', 'Value 3', 'Value 4'],
+                        ['Value 1', 'Value 2', 'Value 3', 'Value 4'],
+                        ['Value 1', 'Value 2', 'Value 3', 'Value 4'],
+                        ['Value 1', 'Value 2', 'Value 3', 'Value 4'],
+                        ['Value 1', 'Value 2', 'Value 3', 'Value 4'],
+                        ['Value 1', 'Value 2', 'Value 3', 'Value 4'],
+                        ['Value 1', 'Value 2', 'Value 3', 'Value 4'],
+                        ['Value 1', 'Value 2', 'Value 3', 'Value 4'],
+                        ['Value 1', 'Value 2', 'Value 3', 'Value 4'],
+                        ['Value 1', 'Value 2', 'Value 3', 'Value 4'],
+                        ['Value 1', 'Value 2', 'Value 3', 'Value 4'],
+                        ['Value 1', 'Value 2', '啊手动滑稽况且我iv吗，安师大 3', 'Value 4'],
+                        ['Value 1', 'Value 2', 'Value 3', '啊手动滑稽,况，，，，,，,且我iv吗，安师大 4'],
+                        [{ text: 'Bold value', bold: true }, 'Val 2', 'Val 3', 'Val 4']
+                    ],
+                },
+                style: "table"
+            },
+            {
+                alignment: 'justify',
+                columns: [
+                    { text: '签名', width: 140, bold: true },
+                    { text: '签名', width: 50 }
+                ],
+                style: "marginTop"
+            },
+            {
+                alignment: 'justify',
+                columns: [
+                    { text: '收货地收 货地址:址', width: 250 },
+                    { text: '电：话', width: 140 },
+                ],
+            },
+        ],
+        styles: {
+            table: {
+                marginTop: 50,
+                fontSize: 12
+            },
+            marginTop: {
+                marginTop: 40,
+                height: 50
+            },
+            scond: {
+                position: 'absolute'
+            }
+        },
+        defaultStyle: {
+            font: 'MFKeSong_Noncommercial'
+        }
+    }];
+
+    const pdfDocGenerator = pdfMake.createPdf(docDefinitions);
+    pdfDocGenerator.getDataUrl((dataUrl) => {
+        const targetElement = document.querySelector('#output');
+        const iframe = document.createElement('iframe');
+        iframe.src = dataUrl;
+        targetElement.appendChild(iframe);
+    });
+
+
+    function pdfPrint() {
+        pdfDocGenerator.print({}, window);
+    }
+
+</script>
+<script>
+    // document.getElementById("output").src = doc.output('datauristring');
+
+</script>
+
+</html>
