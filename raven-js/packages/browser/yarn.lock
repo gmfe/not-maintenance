@@ -2,8 +2,9 @@
 # yarn lockfile v1
 
 
-"@sentry/core@file:../core":
-  version "0.0.1"
+"@sentry/core@^0.1.0":
+  version "0.1.0"
+  resolved "https://registry.yarnpkg.com/@sentry/core/-/core-0.1.0.tgz#9d9cdbedc1013de21a6143c92dbc357c60242682"
 
 "@types/jest@^21.1.6":
   version "21.1.6"
@@ -2293,8 +2294,8 @@ puppeteer@^0.13.0:
     ws "^3.0.0"
 
 qs@~6.4.0:
-  version "6.4.0"
-  resolved "https://registry.yarnpkg.com/qs/-/qs-6.4.0.tgz#13e26d28ad6b0ffaa91312cd3bf708ed351e7233"
+  version "6.4.1"
+  resolved "https://registry.yarnpkg.com/qs/-/qs-6.4.1.tgz#2bad97710a5b661c366b378b1e3a44a592ff45e6"
 
 qs@~6.5.1:
   version "6.5.1"
